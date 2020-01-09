@@ -1,30 +1,14 @@
 ### Exploit
 
-In order to complete `level00`, you have to watch the Elearning video first. Otherwise, you won't know how to approach this level. Supposedly, these are the first steps you need to follow:
-```
-    level00@SnowCrash:~$ ls
-    README
-    level00@SnowCrash:~$ cat README
-    FIND this first file who can rule only as flag00...
-```
+Once again, there isn't much to look at to start with. We know we need to find the password to `flag01`. [/etc/passwd](http://www.linfo.org/etc_passwd.html) contains one interesting line:
+>   flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
 
-(sic) Let's just do that then.
+This is intriguing, to say the least. But `42hDRfypTqqnw` won't let you log in to `flag01`. Time to introduce [John the Ripper](https://www.openwall.com/john/doc/EXAMPLES.shtml). This bad boy will help you "unshadow" traditional Unix password file without root privilege. Use john on a file containing the encrypted password: `abcdefg`, easy as one-two-three.
 ```
-    level00@SnowCrash:~$ find / -user flag00
-    [...]
-    /usr/sbin/john
-    [...]
-    level00@SnowCrash:~$ cat /usr/sbin/john
-    cdiiddwpgswtgt
-```
-
-Indeed, this is the file we've been looking for. Yet, `cdiiddwpgswtgt` won't let you log in as `flag00`. A simple letter substitution cipher such as Rot11 will do the trick! The flag is `nottoohardhere`.
-```
-    level00@SnowCrash:~$ su flag00
+    level01@SnowCrash:~$ su flag01
     Password:
     Don't forget to launch getflag !
-    flag00@SnowCrash:~$ getflag
-    Check flag.Here is your token : x24ti5gi3x0ol2eh4esiuxias
+    flag01@SnowCrash:~$ getflag
+    Check flag.Here is your token : f2av5il02puano7naaf6adaaf
 ```
-
-Now onto the real challenge!
+Level02, here we come!
