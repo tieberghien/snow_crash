@@ -1,5 +1,5 @@
 ```
-  level09@SnowCrash:~$ python /tmp/test.py $(cat token)
+  level09@SnowCrash:~$ python /tmp/decrypt.py $(cat token)
   Result: f3iji1ju5yuevaus41q1afiuq
   level09@SnowCrash:~$ su flag09
   Password:
