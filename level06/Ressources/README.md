@@ -1,3 +1,7 @@
+### Exploit
+
+This level, we're going to look at the potential vunerabilities of a PHP script. More specifically, that of the function [preg_replace](http://www.madirish.net/402). 
+
 ```
   level06@SnowCrash:~$ echo '[x {$y}]' >/tmp/getflag
   level06@SnowCrash:~$ ./level06 /tmp/getflag flag06
