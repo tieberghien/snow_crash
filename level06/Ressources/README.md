@@ -2,7 +2,7 @@
 
 This level, we're going to look at the potential vunerabilities of a PHP script. More specifically, that of the function [preg_replace](http://www.madirish.net/402). We are given two files to work with: a PHP script and an executable binary. Both appear to be rigourously the same. Let's break them down.
 
-First off, the script takes two parameters which are called in function __x__. This function basically get the file content of the first argument via [file_get_contents](https://www.php.net/manual/en/function.file-get-contents.php) and prints it. So far, nothing too complicated. The next line is far more interesting.
+First off, the script takes two parameters which are called by function __x__. This function basically retrieves the content of the first argument via [file_get_contents](https://www.php.net/manual/en/function.file-get-contents.php) and prints it. So far, nothing too complicated. The next line is far more interesting.
 > $a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
 
 Indeed, the '/e' modifier actually allows us to evaluate the second argument as a PHP expression. This means we could create a file whose content is to be interpreted and then executed by the script. For example:

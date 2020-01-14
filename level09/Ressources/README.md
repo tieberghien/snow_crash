@@ -14,7 +14,7 @@ Once again, we're provided with two files: one executable file and a text file w
     level09@SnowCrash:~$ ./level09 $(cat token)
     f5mpq;v�E��{�{��TS�W�����
 ```
-This is not the flag we're looking for. But first, we need to understand how the script works.
+This is not the flag we're looking for. First, we need to understand how the script works.
 
 ```
     level09@SnowCrash:~$ ./level09 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
