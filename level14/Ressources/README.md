@@ -2,7 +2,7 @@
 
 Once more, we're welcomed by an empty repository... You might as well look for a binary to exploit, a hidden file to decrypt, and so on, and so forth, until the end of the night. Luckily, there actually IS a binary to crack. Indeed, we know `getflag` is specific to __snow-crash__. If our intuition's right, we could've captured every flag of every level just by tampering with `getflag`. Which could've also been achieved through bruteforce. The subject strongly emphasises we should NOT be using bruteforce. Well, you leave me no choice, mate. But first, let's have a look at `getflag`
 
-# Getflag
+__Getflag
 
 ```
     level14@SnowCrash:~$ gdb -q /bin/getflag
@@ -44,4 +44,4 @@ Once more, we're welcomed by an empty repository... You might as well look for a
     Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
 ```
 
-# Bruteforce
+__Bruteforce
