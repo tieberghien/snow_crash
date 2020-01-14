@@ -1,8 +1,8 @@
 ### Exploit
 
-Once more, we're welcomed by an empty repository... You might as well look for a binary to exploit, a hidden file to decrypt, and so on, and so forth, until the end of the night. Luckily, there actually IS a binary to crack. Indeed, we know `getflag` is specific to __snow-crash__. If our intuition's right, we could've captured every flag of every level just by tampering with `getflag`. Which could've also been achieved through bruteforce. The subject strongly emphasises we should NOT be using bruteforce. Well, you leave me no choice, mate. But first, let's have a look at `getflag`
+Once more, we're welcomed with an empty repository... You might as well look for a binary to exploit, a hidden file to decrypt, and so on, and so forth, until the end of the night. Luckily, there actually IS a binary to crack. Indeed, we know `getflag` is specific to __snow-crash__. If our intuition's right, we could've captured every flag of every level just by tampering with `getflag`. Besides, whenever we tried to have a go at it, we're being told "You should not reverse this" (sic). You leave me no choice, mate.
 
-__Getflag__
+A quick look around the binary lets us know that, in order to retrieve the correct token and move on to the next stage, the programme first check the value of register $eax. Unsurprisingly, the uid for flag14 is 3014 (0bc6). But before we tamper with the function `getuid`, we need to get around the call to `ptrace`. As it fails, it very logically returns -1, which prevents us from digging deeper into the code. Here are the first couple of steps we need to take. 
 
 ```
     level14@SnowCrash:~$ gdb -q /bin/getflag
@@ -27,6 +27,10 @@ __Getflag__
     Continuing.
 
     Breakpoint 2, 0xb7ee4cc0 in getuid () from /lib/i386-linux-gnu/libc.so.6
+ ```
+By setting $eax at 0, we prevent the programme from exiting before we reach breakpoint __0x80484b0__. Once we get to the `getuid `address, we know simply set $eax to a new value, 3014 and "finish". This [command line](https://www.roe.ac.uk/~ert/stacpolly/idb_manual/common/idb_the_return_command.htm)'s purpose is to continue execution of the current function until it returns to its caller. We are now free to access any address we please, from within the function.
+ 
+ ```
     (gdb) set $eax=3014
     (gdb) finish
     Run till exit from #0  0xb7ee4cc0 in getuid ()
@@ -44,4 +48,4 @@ __Getflag__
     Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
 ```
 
-__Bruteforce__
+Yes, we did it! À MOI L'EXP, MIAM MIAM LE T3.
