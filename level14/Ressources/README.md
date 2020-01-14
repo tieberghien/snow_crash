@@ -29,5 +29,11 @@
     (gdb) jump *0x8048de5
     Continuing at 0x8048de5.
     Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
-    [Inferior 1 (process 2926) exited normally]
+    [Inferior 1 (process 2941) exited normally]
+    (gdb) quit
+    level14@SnowCrash:~$ su flag14
+    Password:
+    Congratulation. Type getflag to get the key and send it to me the owner of this livecd :)
+    flag14@SnowCrash:~$ getflag
+    Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
 ```
