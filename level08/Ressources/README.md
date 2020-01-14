@@ -1,6 +1,6 @@
 ### Exploit
 
-This time around, we've got a binary file and text file, which contains a flag.
+This time around, we've got a binary file and a text file.
 
 ```
     level08@SnowCrash:~$ ls -l
