@@ -35,4 +35,4 @@ We need to trick the script into thinking it executes `getflag` as `flag06`. Mor
     Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
 ```
 
-This works because we are essentically...
+Yeah, I'll just _assume_ this undefined constant is a shell, thank you very much.
