@@ -1,6 +1,6 @@
 ### Exploit
 
-Some Perl scripting going on in this stage... First, go to your localhost:4747, as indicated by the script. Perl's CGI has one major vunerability: calling [param()](https://metacpan.org/pod/distribution/CGI/lib/CGI.pod#Fetching-the-value-or-values-of-a-single-named-parameter) as it is possible to inject other param keys and values into your code if you don't sanitize user input. This is exactly what's going on with this script, as no input is filtered or denied whatsoever. It is therefore possible to inject the command `getflag` into paramater "x".
+Some Perl scripting going on in this stage... First, go to your localhost:4747, as indicated by the script. Perl's CGI has one major vunerability: calling [param()](https://metacpan.org/pod/distribution/CGI/lib/CGI.pod#Fetching-the-value-or-values-of-a-single-named-parameter) as it is possible to inject other param keys and values into your code if you don't sanitize user input. This is exactly what's going on with this script, as no input is filtered or denied whatsoever, much like [XSS attack](https://www.perl.com/pub/2002/02/20/css.html/) It is therefore possible to inject the command `getflag` into paramater "x".
 
 > http://[YOUR_IP_ADRESS]:4747/?x=\`getflag\`
 
