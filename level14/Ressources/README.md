@@ -1,40 +1,33 @@
-(gdb) x/s 0x8048fa8
-0x8048fa8:	 "You should not reverse this"
-(gdb) b *0x0804898e
-Breakpoint 2 at 0x804898e
-(gdb) r
-Starting program: /bin/getflag
+```
+    level14@SnowCrash:~$ gdb -q /bin/getflag
+    Reading symbols from /bin/getflag...(no debugging symbols found)...done.
+    (gdb) set disassembly-flavor intel
+    (gdb) b main
+    Breakpoint 1 at 0x804894a
+    (gdb) b getuid
+    Breakpoint 2 at 0x80484b0
+    (gdb) b *0x0804898e
+    Breakpoint 3 at 0x804898e
+    (gdb) r
+    Starting program: /bin/getflag
 
-Breakpoint 1, 0x08048946 in main ()
-(gdb) c
-Continuing.
+    Breakpoint 1, 0x0804894a in main ()
+    (gdb) c
+    Continuing.
 
-Breakpoint 2, 0x0804898e in main ()
-(gdb) p $eax
-$1 = -1
-(gdb) i r
-eax            0xffffffff	-1
-ecx            0xb7e2b900	-1209878272
-edx            0xffffffc8	-56
-ebx            0xb7fd0ff4	-1208152076
-esp            0xbffff5e0	0xbffff5e0
-ebp            0xbffff708	0xbffff708
-esi            0x0	0
-edi            0x0	0
-eip            0x804898e	0x804898e <main+72>
-eflags         0x200282	[ SF IF ID ]
-cs             0x73	115
-ss             0x7b	123
-ds             0x7b	123
-es             0x7b	123
-fs             0x0	0
-gs             0x33	51
-(gdb) x/s 0xbffff5e0
-0xbffff5e0:	 ""
-(gdb) x/s 0xb7e2b900
-0xb7e2b900:	 ""
-(gdb)
-0xb7e2b901:	 "\271\342\267", <incomplete sequence \342\267>
-(gdb) set $eax = 1
-(gdb) p $eax
-$2 = 1
+    Breakpoint 3, 0x0804898e in main ()
+    (gdb) set $eax=0
+    (gdb) c
+    Continuing.
+
+    Breakpoint 2, 0xb7ee4cc0 in getuid () from /lib/i386-linux-gnu/libc.so.6
+    (gdb) set $eax=3014
+    (gdb) finish
+    Run till exit from #0  0xb7ee4cc0 in getuid ()
+       from /lib/i386-linux-gnu/libc.so.6
+    0x08048b02 in main ()
+    (gdb) ju *0x8048de5
+    Continuing at 0x8048de5.
+    Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+    [Inferior 1 (process 2926) exited normally]
+```
