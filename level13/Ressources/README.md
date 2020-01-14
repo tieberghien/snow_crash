@@ -11,7 +11,7 @@ Once again, let's play with the binary a little bit.
 We can't run the script properly as `level13`. Obviously, we can't simply change our UID to __4242__, because this would require root privilege. We've got to modify the value of "UID" directly within the script. First off, let's launch GDB. 
 
 ```
-  level13@SnowCrash:~$ gdb -q level13
+    level13@SnowCrash:~$ gdb -q level13
     Reading symbols from /home/user/level13/level13...(no debugging symbols found)...done.
     (gdb) set disassembly-flavor intel
     (gdb)
