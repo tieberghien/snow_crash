@@ -26,7 +26,7 @@
     Run till exit from #0  0xb7ee4cc0 in getuid ()
        from /lib/i386-linux-gnu/libc.so.6
     0x08048b02 in main ()
-    (gdb) ju *0x8048de5
+    (gdb) jump *0x8048de5
     Continuing at 0x8048de5.
     Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
     [Inferior 1 (process 2926) exited normally]
