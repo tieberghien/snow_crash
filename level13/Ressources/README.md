@@ -48,7 +48,7 @@ We can't run the script properly as `level13`. Obviously, we can't simply change
        0x080485e9 <+93>:	ret
     End of assembler dump.
 ```
-As we disassemble the programme. we notice at __0x0804859a__ the value of register $eax is compared to 0x1092, that is, 4242. $eax is set to 2013, because it received the return value of the function `getuid`. Moving on to __0x0804859f__, if $eax isn't equal to 4242, the programme continues, prints out an error message at __0x080485ba__ and exit. On the other hand, if $eax is indeed equal to 4242, the programme jumps to <main+63>, hashes the level's token, print it, and then exit. All we have to do now is set the value of register $eax to 4242.
+As we disassemble the programme. we notice at __0x0804859a__ the value of register $eax is compared to 0x1092, that is, 4242. $eax is set to 2013, because it received the return value of the function `getuid`. Moving on to __0x0804859f__, if $eax isn't equal to 4242, the programme continues, prints out an error message at __0x080485ba__ and exit. On the other hand, if $eax is indeed equal to 4242, the programme jumps to <main+63>, hashes the level's token, prints it, and then exits. All we have to do now is set the value of register $eax to 4242.
 
 ```
     (gdb) b *0x0804859a
