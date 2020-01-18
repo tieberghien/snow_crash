@@ -1,6 +1,9 @@
 ### Exploit
 
-Yet another Perl script with unprotected parameters. Do they ever learn? 
+Yet another Perl script with unprotected parameters. Do they ever learn? Yet this time around, we can't simply call getflag through parameter __x__, as the str argument "getflag" is to be transformed in to "GETFLAG" because of this line:
+> $xx =~ tr/a-z/A-Z/;
+
+
 
 ```
     level12@SnowCrash:~$ cat /tmp/TOKEN
